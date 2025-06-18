@@ -17,14 +17,26 @@ datasource db {
 model User {
   id            String    @id @default(uuid())
   name          String
-  userName      String?   @unique
+  userName      String    @unique
   email         String    @unique
   password      String?
+  phoneNumber   String?   @unique
+  role          Role      @default(USER)
+  isActive      Boolean   @default(true)
+  lastLogin     DateTime
   age           Int?
   dateOfBirth   DateTime?
-  image         String?
+  profileImage  String?
   emailVerified DateTime?
+  oauthProvider String?
+  refreshToken  String?
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
   deletedAt     DateTime?
+}
+
+enum Role {
+  USER
+  ADMIN
+  MODERATOR
 }

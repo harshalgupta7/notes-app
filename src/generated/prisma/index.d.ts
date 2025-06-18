@@ -922,6 +922,7 @@ export namespace Prisma {
     profileImage: string | null
     emailVerified: Date | null
     oauthProvider: string | null
+    refreshToken: string | null
     createdAt: Date | null
     updatedAt: Date | null
     deletedAt: Date | null
@@ -942,6 +943,7 @@ export namespace Prisma {
     profileImage: string | null
     emailVerified: Date | null
     oauthProvider: string | null
+    refreshToken: string | null
     createdAt: Date | null
     updatedAt: Date | null
     deletedAt: Date | null
@@ -962,6 +964,7 @@ export namespace Prisma {
     profileImage: number
     emailVerified: number
     oauthProvider: number
+    refreshToken: number
     createdAt: number
     updatedAt: number
     deletedAt: number
@@ -992,6 +995,7 @@ export namespace Prisma {
     profileImage?: true
     emailVerified?: true
     oauthProvider?: true
+    refreshToken?: true
     createdAt?: true
     updatedAt?: true
     deletedAt?: true
@@ -1012,6 +1016,7 @@ export namespace Prisma {
     profileImage?: true
     emailVerified?: true
     oauthProvider?: true
+    refreshToken?: true
     createdAt?: true
     updatedAt?: true
     deletedAt?: true
@@ -1032,6 +1037,7 @@ export namespace Prisma {
     profileImage?: true
     emailVerified?: true
     oauthProvider?: true
+    refreshToken?: true
     createdAt?: true
     updatedAt?: true
     deletedAt?: true
@@ -1139,6 +1145,7 @@ export namespace Prisma {
     profileImage: string | null
     emailVerified: Date | null
     oauthProvider: string | null
+    refreshToken: string | null
     createdAt: Date
     updatedAt: Date
     deletedAt: Date | null
@@ -1178,6 +1185,7 @@ export namespace Prisma {
     profileImage?: boolean
     emailVerified?: boolean
     oauthProvider?: boolean
+    refreshToken?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     deletedAt?: boolean
@@ -1198,6 +1206,7 @@ export namespace Prisma {
     profileImage?: boolean
     emailVerified?: boolean
     oauthProvider?: boolean
+    refreshToken?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     deletedAt?: boolean
@@ -1218,6 +1227,7 @@ export namespace Prisma {
     profileImage?: boolean
     emailVerified?: boolean
     oauthProvider?: boolean
+    refreshToken?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     deletedAt?: boolean
@@ -1238,12 +1248,13 @@ export namespace Prisma {
     profileImage?: boolean
     emailVerified?: boolean
     oauthProvider?: boolean
+    refreshToken?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     deletedAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "userName" | "email" | "password" | "phoneNumber" | "role" | "isActive" | "lastLogin" | "age" | "dateOfBirth" | "profileImage" | "emailVerified" | "oauthProvider" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "userName" | "email" | "password" | "phoneNumber" | "role" | "isActive" | "lastLogin" | "age" | "dateOfBirth" | "profileImage" | "emailVerified" | "oauthProvider" | "refreshToken" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["user"]>
 
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
@@ -1263,6 +1274,7 @@ export namespace Prisma {
       profileImage: string | null
       emailVerified: Date | null
       oauthProvider: string | null
+      refreshToken: string | null
       createdAt: Date
       updatedAt: Date
       deletedAt: Date | null
@@ -1703,6 +1715,7 @@ export namespace Prisma {
     readonly profileImage: FieldRef<"User", 'String'>
     readonly emailVerified: FieldRef<"User", 'DateTime'>
     readonly oauthProvider: FieldRef<"User", 'String'>
+    readonly refreshToken: FieldRef<"User", 'String'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly updatedAt: FieldRef<"User", 'DateTime'>
     readonly deletedAt: FieldRef<"User", 'DateTime'>
@@ -2101,6 +2114,7 @@ export namespace Prisma {
     profileImage: 'profileImage',
     emailVerified: 'emailVerified',
     oauthProvider: 'oauthProvider',
+    refreshToken: 'refreshToken',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
     deletedAt: 'deletedAt'
@@ -2236,6 +2250,7 @@ export namespace Prisma {
     profileImage?: StringNullableFilter<"User"> | string | null
     emailVerified?: DateTimeNullableFilter<"User"> | Date | string | null
     oauthProvider?: StringNullableFilter<"User"> | string | null
+    refreshToken?: StringNullableFilter<"User"> | string | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     deletedAt?: DateTimeNullableFilter<"User"> | Date | string | null
@@ -2256,6 +2271,7 @@ export namespace Prisma {
     profileImage?: SortOrderInput | SortOrder
     emailVerified?: SortOrderInput | SortOrder
     oauthProvider?: SortOrderInput | SortOrder
+    refreshToken?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrderInput | SortOrder
@@ -2279,6 +2295,7 @@ export namespace Prisma {
     profileImage?: StringNullableFilter<"User"> | string | null
     emailVerified?: DateTimeNullableFilter<"User"> | Date | string | null
     oauthProvider?: StringNullableFilter<"User"> | string | null
+    refreshToken?: StringNullableFilter<"User"> | string | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     deletedAt?: DateTimeNullableFilter<"User"> | Date | string | null
@@ -2299,6 +2316,7 @@ export namespace Prisma {
     profileImage?: SortOrderInput | SortOrder
     emailVerified?: SortOrderInput | SortOrder
     oauthProvider?: SortOrderInput | SortOrder
+    refreshToken?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrderInput | SortOrder
@@ -2327,6 +2345,7 @@ export namespace Prisma {
     profileImage?: StringNullableWithAggregatesFilter<"User"> | string | null
     emailVerified?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
     oauthProvider?: StringNullableWithAggregatesFilter<"User"> | string | null
+    refreshToken?: StringNullableWithAggregatesFilter<"User"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     deletedAt?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
@@ -2347,6 +2366,7 @@ export namespace Prisma {
     profileImage?: string | null
     emailVerified?: Date | string | null
     oauthProvider?: string | null
+    refreshToken?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
@@ -2367,6 +2387,7 @@ export namespace Prisma {
     profileImage?: string | null
     emailVerified?: Date | string | null
     oauthProvider?: string | null
+    refreshToken?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
@@ -2387,6 +2408,7 @@ export namespace Prisma {
     profileImage?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     oauthProvider?: NullableStringFieldUpdateOperationsInput | string | null
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -2407,6 +2429,7 @@ export namespace Prisma {
     profileImage?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     oauthProvider?: NullableStringFieldUpdateOperationsInput | string | null
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -2427,6 +2450,7 @@ export namespace Prisma {
     profileImage?: string | null
     emailVerified?: Date | string | null
     oauthProvider?: string | null
+    refreshToken?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
@@ -2447,6 +2471,7 @@ export namespace Prisma {
     profileImage?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     oauthProvider?: NullableStringFieldUpdateOperationsInput | string | null
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -2467,6 +2492,7 @@ export namespace Prisma {
     profileImage?: NullableStringFieldUpdateOperationsInput | string | null
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     oauthProvider?: NullableStringFieldUpdateOperationsInput | string | null
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -2567,6 +2593,7 @@ export namespace Prisma {
     profileImage?: SortOrder
     emailVerified?: SortOrder
     oauthProvider?: SortOrder
+    refreshToken?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrder
@@ -2591,6 +2618,7 @@ export namespace Prisma {
     profileImage?: SortOrder
     emailVerified?: SortOrder
     oauthProvider?: SortOrder
+    refreshToken?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrder
@@ -2611,6 +2639,7 @@ export namespace Prisma {
     profileImage?: SortOrder
     emailVerified?: SortOrder
     oauthProvider?: SortOrder
+    refreshToken?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrder

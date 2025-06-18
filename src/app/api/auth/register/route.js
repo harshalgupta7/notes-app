@@ -2,6 +2,7 @@ import { db } from "@/lib/primsa_singleton/db";
 import { registerSchema } from "@/lib/zod_schema/register";
 import { NextResponse } from "next/server";
 import { hash } from 'bcryptjs';
+import { setAuthCookies, signAccessToken, signRefreshToken } from "@/lib/jwt/jwt";
 
 export async function POST(req) {
     try {
@@ -45,6 +46,22 @@ export async function POST(req) {
             }
         });
 
+        const accessToken = signAccessToken({
+            userId: newUser.id,
+            userName: newUser.userName,
+            email: newUser.email,
+            role: newUser.role
+        });
+
+        const refreshToken = signRefreshToken({ userId: newUser.id });
+
+        await db.user.update({
+            where: { id: newUser.id },
+            data: { refreshToken }
+        });
+
+        setAuthCookies(accessToken, refreshToken);
+
         return NextResponse.json(
             {
                 message: "Welcome to Notes App, You've successfully registered",
@@ -55,6 +72,7 @@ export async function POST(req) {
                 },
                 role: newUser.role,
                 last_login_dateTime: newUser.lastLogin,
+                targetUrl: `${process.env.BASE_URL}dashboard/create`
             },
             { status: 201 }
         );

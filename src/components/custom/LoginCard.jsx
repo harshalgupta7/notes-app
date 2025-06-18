@@ -9,7 +9,6 @@ import { useForm } from "react-hook-form"
 import { loginSchema } from "@/lib/zod_schema/register"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { toast } from "sonner"
-import { Router } from "next/router"
 import { useRouter } from "next/navigation"
 
 export function LoginCard() {
@@ -84,22 +83,22 @@ export function LoginCard() {
         <Card className="w-[350px]">
             <form onSubmit={handleSubmit(apiCallForLogin)}>
                 <CardHeader className="my-4 font-mono">
-                    <CardTitle className="font-mono">BONJOUR</CardTitle>
-                    <CardDescription className="font-serif">Enter your credentials.</CardDescription>
+                    <CardTitle className="font-mono text-[#433575]">BONJOUR</CardTitle>
+                    <CardDescription className="font-serif text-[#8667f7]">Enter your credentials.</CardDescription>
                 </CardHeader>
 
                 <CardContent>
                     <div className="grid w-full gap-4">
 
                         <div className="flex flex-col space-y-1.5">
-                            <Label htmlFor="username">Username</Label>
-                            <Input {...register("userName")} className="font-mono" id="username" placeholder="username" />
+                            <Label htmlFor="username" className="text-[#433575]">Username</Label>
+                            <Input {...register("userName")} className="font-mono text-[#8667f7]" id="username" placeholder="username" />
                             {errors?.userName && (<p className="text-[12px] text-red-500">{errors?.userName?.message}</p>)}
                         </div>
 
                         <div className="flex flex-col space-y-1.5">
-                            <Label htmlFor="password">Password</Label>
-                            <Input {...register("password")} className="font-mono" id="password" type="password" placeholder="password" />
+                            <Label htmlFor="password" className="text-[#433575]">Password</Label>
+                            <Input {...register("password")} className="font-mono text-[#8667f7]" id="password" type="password" placeholder="password" />
                             {errors?.password && (<p className="text-[12px] text-red-500">{errors?.password?.message}</p>)}
                         </div>
 
@@ -107,11 +106,11 @@ export function LoginCard() {
                 </CardContent>
 
                 <CardFooter className="flex justify-between mt-4">
-                    <Button type="submit" className="cursor-pointer" disabled={loading}>
+                    <Button type="submit" className="cursor-pointer text-white" disabled={loading}>
                         SIGN IN
                     </Button>
                     <Link href="/register">
-                        <span className="text-sm underline font-serif text-gray-700">Register</span>
+                        <span className="text-sm font-serif text-[#433575]">Register</span>
                     </Link>
                 </CardFooter>
 
