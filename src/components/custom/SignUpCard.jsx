@@ -48,12 +48,28 @@ export function SignUpCard() {
                 })(),
                 {
                     loading: "Signing up...",
-                    success: (data) => (`Signup complete! Hello, ${data?.user_details?.user_name}! 👋`),
+                    success: (data) => {
+                        handleRedirect(data?.targetUrl);
+                        return `Signup complete! Hello, ${data?.user_details?.user_name}! 👋`;
+                    },
                     error: (err) => (err?.message),
                 });
 
         } catch (e) {
             console.group("apiCallForRegistration");
+            console.error("message : ", e?.message);
+            console.error("cause : ", e?.cause);
+            console.error("stack : ", e?.stack);
+            console.error("error_obj: ", e);
+            console.groupEnd();
+        }
+    };
+
+    const handleRedirect = (url) => {
+        try {
+            router.push(url);
+        } catch (e) {
+            console.group("handleRedirect");
             console.error("message : ", e?.message);
             console.error("cause : ", e?.cause);
             console.error("stack : ", e?.stack);

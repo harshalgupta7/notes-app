@@ -2,6 +2,7 @@ import { db } from "@/lib/primsa_singleton/db";
 import { loginSchema } from "@/lib/zod_schema/register";
 import { NextResponse } from "next/server";
 import { compare } from 'bcryptjs';
+import { setAuthCookies, signAccessToken, signRefreshToken } from "@/lib/jwt/jwt";
 
 export async function POST(req) {
     try {
@@ -33,6 +34,22 @@ export async function POST(req) {
         const passwordCheck = await compare(password, user.password);
 
         if (!passwordCheck) return NextResponse.json({ message: "Incorrect Password" }, { status: 401 });
+
+        const accessToken = signAccessToken({
+            userId: user.id,
+            userName: user.userName,
+            email: user.email,
+            role: user.role
+        });
+
+        const refreshToken = signRefreshToken({ userId: user.id });
+
+        await db.user.update({
+            where: { id: user.id },
+            data: { refreshToken, lastLogin: new Date() }
+        });
+
+        setAuthCookies(accessToken, refreshToken);
 
         return NextResponse.json(
             {

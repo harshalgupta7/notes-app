@@ -12,6 +12,7 @@ export default function TextAreaForNote() {
                         id="message"
                         placeholder="Type your message here."
                         className="flex-1 resize-none "
+                        onChange={(e) => console.log(e.target.value)}
                     />
                 </div>
             </ResizablePanel>

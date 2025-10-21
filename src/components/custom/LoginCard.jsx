@@ -82,6 +82,7 @@ export function LoginCard() {
     return (
         <Card className="w-[350px]">
             <form onSubmit={handleSubmit(apiCallForLogin)}>
+
                 <CardHeader className="my-4 font-mono">
                     <CardTitle className="font-mono text-[#433575]">BONJOUR</CardTitle>
                     <CardDescription className="font-serif text-[#8667f7]">Enter your credentials.</CardDescription>
@@ -109,6 +110,7 @@ export function LoginCard() {
                     <Button type="submit" className="cursor-pointer text-white" disabled={loading}>
                         SIGN IN
                     </Button>
+
                     <Link href="/register">
                         <span className="text-sm font-serif text-[#433575]">Register</span>
                     </Link>
@@ -116,6 +118,5 @@ export function LoginCard() {
 
             </form>
         </Card>
-
     )
-}
+};
